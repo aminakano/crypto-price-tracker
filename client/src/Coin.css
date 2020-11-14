@@ -1,12 +1,8 @@
-.coin-container {
-  display: flex;
-  justify-content: center;
-}
+
 
 .coin-row {
   display: flex;
   flex-direction: row;
-  justify-items: start;
   align-items: center;
   height: 80px;
   border-bottom: 1px solid #d7d7d7;
@@ -52,7 +48,7 @@
 }
 
 .coin-percent {
-  width: 80%;
+  width: 80px;
 }
 
 .red {

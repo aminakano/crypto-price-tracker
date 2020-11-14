@@ -42,3 +42,14 @@
     #4802ff 100%
   );
 }
+
+.coin-input::placeholder {
+  color: #e2e2e2;
+}
+
+.coin-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+

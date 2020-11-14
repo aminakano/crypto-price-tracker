@@ -20,31 +20,52 @@ function App() {
     setSearch(e.target.value)
   }
 
-  const filteredCoins = coins.filter(coin => 
-    coin.name.toLowerCase().includes(search.toLowerCase()))
+  const filteredCoins = coins.filter(
+    (coin) =>
+      coin.name.toLowerCase().includes(search.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="coin-app">
       <div className="coin-search">
         <h1 className="coin-text">Search a currency</h1>
         <form>
-          <input type="text" placeholder="Search" className="coin-input" onChange={handleChange}/>
+          <input
+            type="text"
+            placeholder="Search"
+            className="coin-input"
+            onChange={handleChange}
+          />
         </form>
       </div>
-      {filteredCoins.map(coin => {
-        return (
-          <Coin
-            key={coin.id}
-            name={coin.name}
-            image={coin.image}
-            symbol={coin.symbol}
-            volume={coin.total_volume}
-            price={coin.current_price}
-            priceChange={coin.price_change_percentage_24h}
-            marketcap={coin.market_cap}
-          />
-        );
-      })}
+      <div className="coin-container">
+        <div className="coin-row">
+          <div className="coin">
+            <h4>Name</h4>
+          </div>
+          <div className="coin-data">
+            <h4 className="coin-price">Price</h4>
+            <h4 className="coin-volume">Volume</h4>
+            <h4 className="coin-percent">24h</h4>
+            <h4 className="coin-marketcap">Market Cap</h4>
+          </div>
+        </div>
+        {filteredCoins.map((coin) => {
+          return (
+            <Coin
+              key={coin.id}
+              name={coin.name}
+              image={coin.image}
+              symbol={coin.symbol}
+              volume={coin.total_volume}
+              price={coin.current_price}
+              priceChange={coin.price_change_percentage_24h}
+              marketcap={coin.market_cap}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
